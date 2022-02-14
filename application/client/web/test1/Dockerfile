@@ -12,8 +12,8 @@ RUN npm upgrade -g @angular/cli
 CMD ng build  --output-hashing all && concurrently "ng build --watch" "serve dist/test1"
 EXPOSE 5000
 
-FROM nginx:alpine
-CMD [ "sleep 60s" ]
-RUN rm -rf /usr/share/nginx/html/* && rm -rf /etc/nginx/nginx.conf
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=node /app/dist/test1 /usr/share/nginx/html
+# FROM nginx:alpine
+# CMD [ "sleep" "180" ]
+# RUN rm -rf /usr/share/nginx/html/* && rm -rf /etc/nginx/nginx.conf
+# COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+# COPY --from=node /app/dist/test1 /usr/share/nginx/html
